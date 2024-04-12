@@ -1,2 +1,4 @@
 .devcontainer
 .github
+*.pyc
+__pycache__/
