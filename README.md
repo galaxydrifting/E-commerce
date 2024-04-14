@@ -1,4 +1,6 @@
 ## Project Requirements
 - Python version: 3.12
 - Django version: 5.0
-- Extension: black
+- Extension: 
+    - black: auto fixed forat
+    - Auto Django: to configure all the links in your template files to a static link
