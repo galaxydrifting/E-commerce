@@ -1,0 +1,15 @@
+<!-- <form action="">
+    <input type="text" placeholder="Email">
+    <input type="text" placeholder="Email">
+    <input type="password" placeholder="Password">
+    <input type="password" placeholder="Confirm Password">
+    <button>Register</button>
+</form> -->
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Register</button>
+</form>
+
+<textarea name="" id="" cols="30" rows="10"></textarea>
