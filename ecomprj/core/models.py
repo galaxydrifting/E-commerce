@@ -143,7 +143,9 @@ class ProductImages(models.Model):
         verbose_name_plural = "Product Images"
 
 
-################### Cart, Order, OrderItems and Address ###################
+################### CartOrder, OrderItems ###################
+################### CartOrder, OrderItems ###################
+################### CartOrder, OrderItems ###################
 
 
 class CartOrder(models.Model):
@@ -156,7 +158,7 @@ class CartOrder(models.Model):
     )
 
     class Meta:
-        verbose_name_plural = "CartOrder"
+        verbose_name_plural = "Cart Order"
 
 
 class CartOrderItems(models.Model):
@@ -167,3 +169,54 @@ class CartOrderItems(models.Model):
     qty = models.IntegerField(default=0)
     price = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     total = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+
+    class Meta:
+        verbose_name_plural = "Cart Order Items"
+
+    def order_img(self):
+        # fmt: off
+        return mark_safe(f'<img src="/media/{self.image}" width="50" height="50" />')
+        # fmt: on
+
+
+################### Product, Review, Wishlists and Address ###################
+################### Product, Review, Wishlists and Address ###################
+################### Product, Review, Wishlists and Address ###################
+
+
+class ProductReview(models.Model):
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
+    review = models.TextField()
+    rating = models.IntegerField(choices=RATING, default=None)
+    date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name_plural = "Product Reviews"
+
+    def __str__(self):
+        return self.product.title
+
+    def get_rating(self):
+        return
+
+
+class Wishlist(models.Model):
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
+    date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name_plural = "Wishlists"
+
+    def __str__(self):
+        return self.product.title
+
+
+class Address(models.Model):
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    address = models.CharField(max_length=100, null=True)
+    status = models.BooleanField(default=False)
+
+    class Meta:
+        verbose_name_plural = "Address"
