@@ -17,3 +17,9 @@ def index(request):
     products = Product.objects.all().order_by("-id")
     context = {"products": products}
     return render(request, "core/index.html", context)
+
+
+def product_list_view(request):
+    products = Product.objects.filter(product_status="published").all().order_by("-id")
+    context = {"products": products}
+    return render(request, "core/product-list.html", context)
