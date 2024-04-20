@@ -69,13 +69,14 @@
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="tab-one" role="tabpanel" aria-labelledby="tab-one">
                                 <div class="row product-grid-4">
+                                    {% for p in products %}
                                     <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
                                         <div class="product-cart-wrap mb-30">
                                             <div class="product-img-action-wrap">
                                                 <div class="product-img product-img-zoom">
                                                     <a href="shop-product-right.html">
-                                                        <img class="default-img" src="{% static 'assets/imgs/shop/product-1-1.jpg' %}" alt="" />
-                                                        <img class="hover-img" src="{% static 'assets/imgs/shop/product-1-2.jpg' %}" alt="" />
+                                                        <img class="default-img" src="{{p.image.url}}" alt="" />
+                                                        <img class="hover-img" src="{{p.image.url}}" alt="" />
                                                     </a>
                                                 </div>
                                                 <div class="product-action-1">
@@ -89,9 +90,9 @@
                                             </div>
                                             <div class="product-content-wrap">
                                                 <div class="product-category">
-                                                    <a href="shop-grid-right.html">Snack</a>
+                                                    <a href="shop-grid-right.html">{{ p.category }}</a>
                                                 </div>
-                                                <h2><a href="shop-product-right.html">Seeds of Change Organic Quinoe</a></h2>
+                                                <h2><a href="shop-product-right.html">{{ p.title }}</a></h2>
                                                 <div class="product-rate-cover">
                                                     <div class="product-rate d-inline-block">
                                                         <div class="product-rating" style="width: 90%"></div>
@@ -113,6 +114,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    {% endfor %}
                                 </div>
                                 <!--End product-grid-4-->
                             </div>
