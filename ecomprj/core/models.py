@@ -44,3 +44,14 @@ class Vendor(models.Model):
     warranty_period = models.CharField(max_length=100, default="N/A")
 
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+
+    class Meta:
+        verbose_name_plural = "Vendors"
+
+    def vendor_image(self):
+        # fmt: off
+        return mark_safe(f'<img src="{self.image.url}" width="50" height="50" />')
+        # fmt: on
+
+    def __str__(self):
+        return self.title
