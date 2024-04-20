@@ -100,7 +100,7 @@ class Product(models.Model):
     old_price = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
 
     specifications = models.TextField(null=True, blank=True, default="N/A")
-    tags = models.ForeignKey(Tags, on_delete=models.SET_NULL, null=True)
+    # tags = models.ForeignKey(Tags, on_delete=models.SET_NULL, null=True)
 
     product_status = models.CharField(
         choices=STATUS, max_length=10, default="in_review"
