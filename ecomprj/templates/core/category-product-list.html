@@ -68,13 +68,14 @@
                     </div>
                     <div class="row product-grid">
 
+                        {% for p in products %}
                         <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
                             <div class="product-cart-wrap mb-30">
                                 <div class="product-img-action-wrap">
                                     <div class="product-img product-img-zoom">
                                         <a href="shop-product-right.html">
-                                            <img class="default-img" src="assets/imgs/shop/product-1-1.jpg" alt="" />
-                                            <img class="hover-img" src="assets/imgs/shop/product-1-2.jpg" alt="" />
+                                            <img class="default-img" src="{{p.image.url}}" alt="" />
+                                            <img class="hover-img" src="{{p.image.url}}" alt="" />
                                         </a>
                                     </div>
                                     <div class="product-action-1">
@@ -83,14 +84,14 @@
                                         <a aria-label="Quick view" class="action-btn" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
                                     </div>
                                     <div class="product-badges product-badges-position product-badges-mrg">
-                                        <span class="hot">Hot</span>
+                                        <span class="hot">-{{ p.get_percentage|floatformat:0 }}%</span>
                                     </div>
                                 </div>
                                 <div class="product-content-wrap">
                                     <div class="product-category">
-                                        <a href="shop-grid-right.html">Snack</a>
+                                        <a href="shop-grid-right.html">{{ p.category }}</a>
                                     </div>
-                                    <h2><a href="shop-product-right.html">Seeds of Change Organic Quinoe Naturel</a></h2>
+                                    <h2><a href="shop-product-right.html">{{ p.title }}</a></h2>
                                     <div class="product-rate-cover">
                                         <div class="product-rate d-inline-block">
                                             <div class="product-rating" style="width: 90%"></div>
@@ -98,12 +99,12 @@
                                         <span class="font-small ml-5 text-muted"> (4.0)</span>
                                     </div>
                                     <div>
-                                        <span class="font-small text-muted">By <a href="vendor-details-1.html">NestFood</a></span>
+                                        <span class="font-small text-muted">By <a href="vendor-details-1.html">{{ p.vendor.title }}</a></span>
                                     </div>
                                     <div class="product-card-bottom">
                                         <div class="product-price">
-                                            <span>$28.85</span>
-                                            <span class="old-price">$32.8</span>
+                                            <span>${{ p.price }}</span>
+                                            <span class="old-price">${{ p.old_price }}</span>
                                         </div>
                                         <div class="add-cart">
                                             <a class="add" href="shop-cart.html"><i class="fi-rs-shopping-cart mr-5"></i>Add </a>
@@ -112,7 +113,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!--end product card-->
+                        {% endfor %}
                         
                     </div>
                     <!--product grid-->
