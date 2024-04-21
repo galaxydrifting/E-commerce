@@ -11,4 +11,5 @@ urlpatterns = [
         "category/<cid>", views.category_product_list_view, name="category-product-list"
     ),
     path("vendors/", views.vendor_list_view, name="vendor-list"),
+    path("vendors/<vid>", views.vendor_detail_view, name="vendor-detail"),
 ]
