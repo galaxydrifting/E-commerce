@@ -109,6 +109,10 @@ class Product(models.Model):
     old_price = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
 
     specifications = models.TextField(null=True, blank=True, default="N/A")
+    type = models.CharField(max_length=100, default="N/A", null=True, blank=True)
+    stock_count = models.CharField(max_length=100, default="N/A", null=True, blank=True)
+    life = models.CharField(max_length=100, default="N/A", null=True, blank=True)
+    mfd = models.DateTimeField(auto_now_add=False, null=True, blank=True)
     # tags = models.ForeignKey(Tags, on_delete=models.SET_NULL, null=True)
 
     product_status = models.CharField(
