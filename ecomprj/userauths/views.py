@@ -46,7 +46,7 @@ def login_view(request):
             else:
                 messages.warning(request, "User does not exist. Please sign up.")
 
-        except:
+        except Exception:
             messages.warning(request, f"User with {email} does not exist")
 
     return render(request, "userauths/sign-in.html")

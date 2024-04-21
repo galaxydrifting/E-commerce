@@ -146,11 +146,6 @@ class ProductImages(models.Model):
         verbose_name_plural = "Product Images"
 
 
-################### CartOrder, OrderItems ###################
-################### CartOrder, OrderItems ###################
-################### CartOrder, OrderItems ###################
-
-
 class CartOrder(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
@@ -181,11 +176,6 @@ class CartOrderItems(models.Model):
         # fmt: off
         return mark_safe(f'<img src="/media/{self.image}" width="50" height="50" />')
         # fmt: on
-
-
-################### Product, Review, Wishlists and Address ###################
-################### Product, Review, Wishlists and Address ###################
-################### Product, Review, Wishlists and Address ###################
 
 
 class ProductReview(models.Model):
