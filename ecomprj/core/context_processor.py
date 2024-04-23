@@ -13,4 +13,5 @@ from core.models import (
 
 def default(request):
     categories = Category.objects.all()
-    return {"categories": categories}
+    address = Address.objects.get(user=request.user)
+    return {"categories": categories, "address": address}
