@@ -78,5 +78,5 @@ def tag_list(request, tag_slug=None):
         tag = get_object_or_404(Tag, slug=tag_slug)
         products = products.filter(tags__in=[tag])
 
-    context = {"products": products}
+    context = {"products": products, "tag": tag}
     return render(request, "core/tag.html", context)
