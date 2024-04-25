@@ -13,5 +13,8 @@ from core.models import (
 
 def default(request):
     categories = Category.objects.all()
-    address = Address.objects.get(user=request.user)
+    try:
+        address = Address.objects.get(user=request.user)
+    except Exception:
+        address = None
     return {"categories": categories, "address": address}
