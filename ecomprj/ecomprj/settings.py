@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "taggit",
+    "ckeditor",
     "core",
     "userauths",
 ]
@@ -144,3 +145,5 @@ JAZZMIN_SETTINGS = {
 }
 
 AUTH_USER_MODEL = "userauths.User"
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
