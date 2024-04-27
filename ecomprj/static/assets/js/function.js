@@ -8,8 +8,12 @@ $("#commentForm").submit(function(e){
         method: $(this).attr('method'),
         url: $(this).attr('action'),
         dataType: 'json',
-        success: function(response){
-            console.log("comment success saved to db")
+        success: function(resp){
+            console.log("Comment saved to DB");
+
+            if(resp.bool == true){
+                $("#review-resp").html("Review added successfully.");
+            }
         }
     })
 })
