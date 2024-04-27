@@ -1,7 +1,7 @@
 from core.models import (
     # Product,
     Category,
-    # Vendor,
+    Vendor,
     # CartOrder,
     # CartOrderItems,
     # ProductImages,
@@ -13,10 +13,15 @@ from core.models import (
 
 def default(request):
     categories = Category.objects.all()
+    vendors = Vendor.objects.all()
 
     try:
         address = Address.objects.get(user=request.user)
     except Exception:
         address = None
 
-    return {"categories": categories, "address": address}
+    return {
+        "categories": categories,
+        "address": address,
+        "vendors": vendors,
+    }
