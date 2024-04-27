@@ -13,6 +13,8 @@ $("#commentForm").submit(function(e){
 
             if(resp.bool == true){
                 $("#review-resp").html("Review added successfully.");
+                $(".hide-comment-form").hide();
+                $(".add-review").hide();
             }
         }
     })

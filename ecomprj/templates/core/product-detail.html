@@ -323,12 +323,12 @@
                                                 </div>
                                                 <!--comment form-->
                                                 <div class="comment-form">
-                                                    <h4 class="mb-15">Add a review</h4>
+                                                    <h4 class="mb-15 add-review">Add a review</h4>
                                                     <strong class="text-success" id="review-resp"></strong>
                                                     <!-- <div class="product-rate d-inline-block mb-30"></div> -->
                                                     <div class="row">
                                                         <div class="col-lg-8 col-md-12">
-                                                            <form class="form-contact comment_form" action="{% url 'core:ajax-add-review' p.id %}" id="commentForm" method="POST">
+                                                            <form class="form-contact comment_form hide-comment-form" action="{% url 'core:ajax-add-review' p.id %}" id="commentForm" method="POST">
                                                                 {% csrf_token %}
                                                                 <div class="row">
                                                                     <div class="col-12">
