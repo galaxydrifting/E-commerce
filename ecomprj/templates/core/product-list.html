@@ -28,18 +28,13 @@
                                     <h5 class="mb-30">By Categories</h5>
                                     <div class="categories-dropdown-wrap font-heading">
                                         <ul>
+                                            {% for c in categories%}
                                             <li>
-                                                <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/category-1.svg" alt="" />Milks and Dairies</a>
+                                            <input class="form-check-input filter-checkbox" type="checkbox" name="checkbox"
+data-filter="category" id="exampleCheckbox2" value="{{ c.id }}" />&nbsp;&nbsp;
+                                                <a href="{% url 'core:category-product-list' c.cid %}"> <img src="{{ c.image.url }}" alt="" />{{ c.title }}</a>
                                             </li>
-                                            <li>
-                                                <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/category-2.svg" alt="" />Clothing &amp; beauty</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/category-3.svg" alt="" />Pet Foods &amp; Toy</a>
-                                            </li>
-                                            <li class="mb-0">
-                                                <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/category-4.svg" alt="" />Baking material</a>
-                                            </li>
+                                            {% endfor %}
                                         </ul>
                                     </div>
                                 </div>
@@ -213,8 +208,8 @@
                                 <div class="product-img-action-wrap">
                                     <div class="product-img product-img-zoom">
                                         <a href="{% url 'core:product-detail' p.pid %}">
-                                            <img class="default-img" src="{{p.image.url}}" alt="" />
-                                            <img class="hover-img" src="{{p.image.url}}" alt="" />
+                                            <img class="default-img" src="{% static '{{p.image.url}}' %}" alt="" />
+                                            <img class="hover-img" src="{% static '{{p.image.url}}' %}" alt="" />
                                         </a>
                                     </div>
                                     <div class="product-action-1">
@@ -286,7 +281,7 @@
                                     <div class="product-img-action-wrap">
                                         <div class="product-img">
                                             <a href="shop-product-right.html">
-                                                <img src="assets/imgs/banner/banner-5.png" alt="" />
+                                                <img src="{% static 'assets/imgs/banner/banner-5.png' %}" alt="" />
                                             </a>
                                         </div>
                                     </div>
@@ -323,7 +318,7 @@
                                     <div class="product-img-action-wrap">
                                         <div class="product-img">
                                             <a href="shop-product-right.html">
-                                                <img src="assets/imgs/banner/banner-6.png" alt="" />
+                                                <img src="{% static 'assets/imgs/banner/banner-6.png' %}" alt="" />
                                             </a>
                                         </div>
                                     </div>
@@ -360,7 +355,7 @@
                                     <div class="product-img-action-wrap">
                                         <div class="product-img">
                                             <a href="shop-product-right.html">
-                                                <img src="assets/imgs/banner/banner-7.png" alt="" />
+                                                <img src="{% static 'assets/imgs/banner/banner-7.png' %}" alt="" />
                                             </a>
                                         </div>
                                     </div>
@@ -397,7 +392,7 @@
                                     <div class="product-img-action-wrap">
                                         <div class="product-img">
                                             <a href="shop-product-right.html">
-                                                <img src="assets/imgs/banner/banner-8.png" alt="" />
+                                                <img src="{% static 'assets/imgs/banner/banner-8.png' %}" alt="" />
                                             </a>
                                         </div>
                                     </div>
