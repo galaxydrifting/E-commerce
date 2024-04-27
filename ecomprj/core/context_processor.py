@@ -1,12 +1,12 @@
 from core.models import (
-    Product,
+    # Product,
     Category,
-    Vendor,
-    CartOrder,
-    CartOrderItems,
-    ProductImages,
-    ProductReview,
-    Wishlist,
+    # Vendor,
+    # CartOrder,
+    # CartOrderItems,
+    # ProductImages,
+    # ProductReview,
+    # Wishlist,
     Address,
 )
 

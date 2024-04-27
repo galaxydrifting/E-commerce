@@ -112,7 +112,7 @@ def ajax_add_review(request, pid):
     product = Product.objects.get(pk=pid)
     user = request.user
 
-    review = ProductReview.objects.create(
+    _ = ProductReview.objects.create(
         user=user,
         product=product,
         review=request.POST["review"],
