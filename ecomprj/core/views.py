@@ -74,10 +74,21 @@ def product_detail_view(request, pid):
 
     review_form = ProductReviewForm()
 
+    make_review = True
+
+    if request.user.is_authenticated:
+        user_review_count = ProductReview.objects.filter(
+            user=request.user, product=product
+        ).count()
+
+        if user_review_count > 0:
+            make_review = False
+
     p_images = product.p_images.all()
 
     context = {
         "p": product,
+        "make_review": make_review,
         "review_form": review_form,
         "p_images": p_images,
         "average_rating": average_rating,
